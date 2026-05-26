@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata:
+  name: asset-intel-training
+  annotations:
+    scenarios.ai.sap.com/description: "Asset Intelligence ML Training"
+    scenarios.ai.sap.com/name: "asset-intel-training"
+    executables.ai.sap.com/description: "Train failure prediction model"
+    executables.ai.sap.com/name: "training-pipeline"
+  labels:
+    scenarios.ai.sap.com/id: "asset-intel-training"
+    ai.sap.com/version: "1.0.0"
+spec:
+  imagePullSecrets:
+    - name: docker-registry-secret
+  entrypoint: training
+  templates:
+    - name: training
+      container:
+        image: ismailbluwis/asset-intel-training:latest
+        command: ["python", "train.py"]
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "0.5"
