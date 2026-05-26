@@ -15,6 +15,6 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: ./aicore-training
           push: true
           tags: ismailbluwis/asset-intel-training:latest
