@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "projects",
+			"path": "../../projects"
+		},
+		{
+			"name": "asset-intel",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
