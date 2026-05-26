@@ -4,7 +4,7 @@ from sklearn.preprocessing import StandardScaler
 import pickle, os
 
 data_path = '/app/data/ml_training_data.csv'
-model_path = '/app/model'
+model_path = '/tmp/model'
 
 df = pd.read_csv(data_path)
 features = ['AGE_YRS','DAYS_SINCE_PM','N_FAILURES','TOTAL_DOWNTIME_HRS','AVG_TEMP','AVG_VIB','AVG_PRES']
@@ -21,4 +21,4 @@ os.makedirs(model_path, exist_ok=True)
 with open(f'{model_path}/model.pkl', 'wb') as f:
     pickle.dump({'model': model, 'scaler': scaler}, f)
 
-print("Training complete. Model saved.")
+print("Training complete. Model saved to /tmp/model/model.pkl")
